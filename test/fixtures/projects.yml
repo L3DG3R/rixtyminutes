@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project_type: MyString
+  platform_type: MyString
+  content_type: MyString
+  project_name: MyString
+  summary: MyText
+  launch_date: MyString
+  active: false
+  user_id: 
+
+two:
+  project_type: MyString
+  platform_type: MyString
+  content_type: MyString
+  project_name: MyString
+  summary: MyText
+  launch_date: MyString
+  active: false
+  user_id: 
