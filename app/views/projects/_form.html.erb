@@ -1,0 +1,68 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		Create your project
+	</div>
+	<div class="panel-body">
+		<div class="container">
+			
+			<%= form_for @project do |f| %>
+			
+				<div class="row">
+					<div class="col-md-4 select">
+						<div class="form-group">
+							<label>Project Type</label>
+							<%= f.select :project_type, [["Appearance", "Appearance"],["Brand Integration", "Brand Integration"],["Festival", "Festival"], 							["Licensing", "Licensing"], ["Product Placement", "Product Placement"], ["Sponsorship", "Sponsorship" ]], id: "project_type", prompt: 						   "Select...", class: "form-control" %>
+						</div>
+					</div>
+					
+					<div class="col-md-4 select">
+						<div class="form-group">
+							<label>Platform</label>
+							<%= f.select :platform_type, [["Facebook", "Facebook"],["Instagram", "Instagram"],["Snapchat", "Snapchat"],["Twitter", "Twitter"], 							["Vine", "Vine"], ["Sponsorship", "Sponsorship" ]], id: "platform_type", prompt: "Select...", class: "form-control" %>
+						</div>
+					</div>
+					
+					<div class="col-md-4 select">
+						<div class="form-group">
+							<label>Content Type</label>
+							<%= f.select :content_type, [["Photo", "Photo"],["Video", "Video"],["Episodic", "Festival"]], id: "content_type", prompt: "Select...", 							class: "form-control" %>
+						</div>
+					</div>
+					
+				</div>
+				
+				<div class="row">
+					<div class="form-group">
+						<label>Project Name</label>
+						<%= f.text_field :project_name, placeholder: "Be clear and descriptive", class: "form-control" %>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="form-group">
+						<label>Summary</label>
+						<%= f.text_area :summary, rows: 5, placeholder: "Tell us about your project", class: "form-control" %>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="form-group">
+						<label>Launch Date</label>
+						<%= f.text_field :launch_date, placeholder: "When is the launch date of this project?", class: "form-control" %>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="form-group">
+						<%= f.check_box :active %> Active
+					</div>
+				</div>
+				
+				<div class="actions">
+					<%= f.submit "Save", class: "btn btn-primary" %>
+				</div>
+		
+			<% end %>
+			
+	</div>	
+</div>	
