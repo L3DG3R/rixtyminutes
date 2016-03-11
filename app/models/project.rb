@@ -1,5 +1,6 @@
 class Project < ActiveRecord::Base
   belongs_to :user
+  has_many :photos
   
   validates :project_type, presence: true
   validates :platform_type, presence: true

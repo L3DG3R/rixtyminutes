@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    set_project
+    @photos = @project.photos
   end
 
   def new
@@ -18,19 +18,38 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.build(project_params)
     
     if @project.save
-      redirect_to @project, notice: "Saved..."
+      
+      if params[:images]
+        params[:images].each do |image|
+          @project.photos.create(image: image)
+        end  
+      end
+      
+      @photos = @project.photos
+      redirect_to edit_project_path(@project), notice: "Saved..."
     else
       render :new
     end    
   end
 
   def edit
-    set_project
-  end
-
+    if current_user.id == @project.user.id
+      @photos = @project.photos
+    else
+      redirect_to root_path, notice: "You don't have permission"
+    end
+  end  
+    
   def update
     if @project.update(project_params)
-      redirect_to @project, notice: "Updated..."
+      
+      if params[:images]
+        params[:images].each do |image|
+          @project.photos.create(image: image)
+        end  
+      end
+      
+      redirect_to edit_project_path(@project), notice: "Updated..."
     else
       render :edit
     end    
