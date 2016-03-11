@@ -15,6 +15,8 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+gem 'paperclip'
+
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
   gem 'byebug',      '3.4.0'
