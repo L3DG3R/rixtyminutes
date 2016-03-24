@@ -5,7 +5,7 @@
 	<div class="panel-body">
 		<div class="container">
 			
-			<%= form_for @project, html: {multipart: true} do |f| %>
+			<%= form_for @project, :html => {multipart: true} do |f| %>
 			
 				<div class="row">
 					<div class="col-md-4 select">
@@ -63,9 +63,7 @@
 					</div>	
 				</div>
 				
-				<div id="photos">
-					<%= render 'photos/list' %>
-				</div>
+				<div id="photos"><%= render 'photos/list' %></div>
 				
 				<div class="row">
 					<div class="form-group">
