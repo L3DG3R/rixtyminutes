@@ -1,2 +1,65 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="text-center">
+	<h2>Just for the weekend</h2>
+	<p>Discover new, inspiring projects.</p>
+</div>
+
+<br>
+
+<div class="row">
+	<div class="col-md-4 col-sm-12">
+		<div class="discovery-card" style="background-image: url('/assets/shanesmokers')">
+			<div class="va-container">
+				<div class="va-middle text-center">
+					<h2><strong>Music Videos</strong></h2>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-4 col-sm-6">
+		<div class="discovery-card" style="background-image: url('/assets/shonduras')">
+			<div class="va-container">
+				<div class="va-middle text-center">
+					<h2><strong>Snapchat</strong></h2>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-4 col-sm-6">
+		<div class="discovery-card" style="background-image: url('/assets/rap_battle')">
+			<div class="va-container">
+				<div class="va-middle text-center">
+					<h2><strong>Youtubers</strong></h2>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<br>
+
+<div class="text-center">
+	<h2>Explore the world</h2>
+	<p>See what peopel are travelling, all around the world.</p>
+</div>
+
+<br>
+
+<div class="row">
+	<% @projects.each do |project| %>
+		<div class="col-md-4">
+			<div class="panel panel-default">
+				<div class="panel-heading preview">
+					<%= image_tag project.photos[0].image.url(:medium) %>
+				</div>
+				<div class="panel-body">
+					<%= link_to project.project_name, project_path(project) %>
+				</div>
+			</div>
+		</div>
+				
+	<% end %>
+			
+</div>
+
