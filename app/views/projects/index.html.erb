@@ -1,2 +1,32 @@
-<h1>Projects#index</h1>
-<p>Find me in app/views/projects/index.html.erb</p>
+<div class="row">
+	<div class="col-md-3">
+		<ul class="sidebar-list">
+			<li class="sidebar-item"><%= link_to "Projects", projects_path, class:"sidebar-link active" %></li>
+			<li class="sidebar-item"><%= link_to "Reservations", projects_path, class:"sidebar-link active" %></li>
+		</ul>	
+	</div>
+	<div class="col-md-9">
+		<div class="panel panel-default">
+			<div class"panel-heading">
+				Projects
+			</div>	
+				<div class="panel-body">
+					
+					<% @projects.each do |project| %>
+						<div class="row">
+							<div class="col-md-2">
+								<%= image_tag project.photos[0].image.url(:thumb) if project.photos.length > 0 %>
+							</div>
+							<div class="col-md-7">
+								<h4><%= project.project_name %></h4>
+							</div>
+							<div class="col-md-3 right">
+								<%= link_to "Update", edit_project_path(project), class: "btn btn-primary" %>
+							</div>
+						</div>
+					<% end %>	
+							
+			</div>
+		</div>	
+	</div>		
+</div>
