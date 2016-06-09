@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   resources :projects
   resources :photos
   
- # get '/search' => 'pages#search'
+  get '/search' => 'pages#search'
              
 end
